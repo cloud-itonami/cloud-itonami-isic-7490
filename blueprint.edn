@@ -1,0 +1,11 @@
+{:itonami.blueprint/id "cloud-itonami-7490"
+ :itonami.blueprint/name "Other professional, scientific and technical activities n.e.c."
+ :itonami.blueprint/isic-rev5 "7490"
+ :itonami.blueprint/domain :professional/other-technical-services
+ :itonami.blueprint/license "AGPL-3.0-or-later"
+ :itonami.blueprint/social-impact [:professional-standards :data-sovereignty :transparency]
+ :itonami.blueprint/governor :professional-services-governor
+ :itonami.blueprint/required-technologies [:robotics :identity :forms :dmn :bpmn :audit-ledger]
+ :itonami.blueprint/optional-technologies []
+ :itonami.blueprint/status :public-oss
+ :itonami.blueprint/robotics true}
