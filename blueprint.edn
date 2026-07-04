@@ -1,4 +1,4 @@
-{:itonami.blueprint/id "cloud-itonami-7490"
+{:itonami.blueprint/id "cloud-itonami-isic-7490"
  :itonami.blueprint/name "Other professional, scientific and technical activities n.e.c."
  :itonami.blueprint/isic-rev5 "7490"
  :itonami.blueprint/domain :professional/other-technical-services

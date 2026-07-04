@@ -1,6 +1,6 @@
 # Governance
 
-`cloud-itonami-7490` is an OSS open-business blueprint for other professional, scientific and technical activities not elsewhere classified (e.g. translation/interpretation, non-real-estate/non-insurance appraisal, patent brokering).
+`cloud-itonami-isic-7490` is an OSS open-business blueprint for other professional, scientific and technical activities not elsewhere classified (e.g. translation/interpretation, non-real-estate/non-insurance appraisal, patent brokering).
 Governance covers both the capability layer and the operator model.
 
 ## Maintainers

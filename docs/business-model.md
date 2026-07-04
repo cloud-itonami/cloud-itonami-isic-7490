@@ -2,7 +2,7 @@
 
 ## Classification
 
-- Repository: `cloud-itonami-7490`
+- Repository: `cloud-itonami-isic-7490`
 - ISIC Rev.5: `7490`
 - Activity: other professional, scientific and technical activities not elsewhere classified (e.g. translation/interpretation, non-real-estate/non-insurance appraisal, patent brokering)
 - Social impact: professional standards, data sovereignty, transparent audit

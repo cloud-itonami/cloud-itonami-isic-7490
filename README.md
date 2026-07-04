@@ -1,4 +1,4 @@
-# cloud-itonami-7490
+# cloud-itonami-isic-7490
 
 Open Business Blueprint for **ISIC Rev.5 7490**: Other professional, scientific and technical activities n.e.c..
 
