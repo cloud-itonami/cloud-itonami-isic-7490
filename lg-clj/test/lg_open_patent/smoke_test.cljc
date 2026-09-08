@@ -3,7 +3,7 @@
   Python `lg/tests/test_smoke.py`, plus node-behaviour tests the original could
   not run offline (the LLM + RisingWave store are injectable here, so the seed /
   novelty / ingest pipelines verify under bb with deterministic stubs)."
-  (:require [clojure.test :refer [deftest is testing]]
+  (:require [kotoba.lang.text] [clojure.test :refer [deftest is testing]]
             [langgraph.graph :as g]
             [lg-open-patent.server :as server]
             [lg-open-patent.kotoba-datomic :as kd]
@@ -192,7 +192,7 @@
   "Deterministic LLM stub: seed step returns prose, novelty step returns a score."
   [score]
   (fn [system _user _opts]
-    (if (clojure.string/includes? system "examiner")
+    (if (kotoba.lang.text/includes? system "examiner")
       (str score)
       (str "Invented thing\nA novel apparatus."))))
 
