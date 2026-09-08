@@ -9,7 +9,7 @@
 
   Source of truth is the SAME `../lg/langgraph.json` the Python reads — so a drift
   between the two stays a single edit (parity guard, like cron.py's _load_cron_specs)."
-  (:require [clojure.string :as str]
+  (:require [kotoba.lang.text :as str]
             #?(:clj [cheshire.core :as json])))
 
 (def langgraph-json-path

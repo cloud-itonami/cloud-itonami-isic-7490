@@ -21,7 +21,7 @@
   LLM edge -> lg-open-patent.llm/*chat* (Murakumo loopback, ADR-2605215000).
   Corpus + persistence -> lg-open-patent.store/*store* (PatentStore seam).
   Both are injectable; tests rebind them to deterministic stubs (offline)."
-  (:require [clojure.string :as str]
+  (:require [kotoba.lang.text :as str]
             [langgraph.graph :as g]
             [lg-open-patent.llm :as llm]
             [lg-open-patent.store :as store]))

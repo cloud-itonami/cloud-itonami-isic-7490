@@ -28,7 +28,7 @@
   the act of issuing the deliverable or attestation itself (that is
   `proserv.operation`'s `:actuation/issue-deliverable`, always human-
   gated -- see README `Actuation`)."
-  (:require [clojure.string :as str]))
+  (:require [kotoba.lang.text :as str]))
 
 (defn- unsigned-certificate
   "Every certificate this actor produces is UNSIGNED -- signature is the
@@ -62,7 +62,7 @@
     (throw (ex-info "deliverable-issuance: jurisdiction required" {})))
   (when (< sequence 0)
     (throw (ex-info "deliverable-issuance: sequence must be >= 0" {})))
-  (let [deliverable-number (str (str/upper-case jurisdiction) "-DLV-" (zero-pad sequence 6))
+  (let [deliverable-number (str (str/upper jurisdiction) "-DLV-" (zero-pad sequence 6))
         record {"record_id" deliverable-number
                 "kind" "deliverable-issuance-draft"
                 "engagement_id" engagement-id

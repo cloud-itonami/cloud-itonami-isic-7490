@@ -13,7 +13,7 @@
       lg-open-patent.kotoba-datomic (substrate-clean target).
 
   Graphs reference the store through the `*store*` dynamic var (rebound in tests)."
-  (:require [clojure.string :as str]
+  (:require [kotoba.lang.text :as str]
             [lg-open-patent.kotoba-datomic :as kd]))
 
 (defprotocol PatentStore
@@ -36,7 +36,7 @@
 
 (defn- domain-of [patent]
   (or (:tech_domain patent)
-      (some-> (or (:title patent) "") (str/split #"\s+") first str/lower-case)
+      (some-> (or (:title patent) "") (str/split #"\s+") first str/lower)
       "unknown"))
 
 (defrecord FakePatentStore [db]
@@ -49,9 +49,9 @@
          (sort-by (comp - :count))
          vec))
   (search-patents [_ query]
-    (let [q (str/lower-case (str query))]
+    (let [q (str/lower (str query))]
       (->> (:patents @db)
-           (filter (fn [p] (str/includes? (str/lower-case (str (:title p))) q)))
+           (filter (fn [p] (str/includes? (str/lower (str (:title p))) q)))
            vec)))
   (put-patents! [_ patents]
     (swap! db update :patents (fnil into []) patents)
@@ -84,7 +84,7 @@
            (map (fn [[d n]] {:domain d :count n})) vec)))
   (search-patents [_ query]
     (kd/q dm (str "[:find (pull ?e [*]) :where [?e :patent/title ?t] "
-                  "[(clojure.string/includes? ?t " (edn-str (str query)) ")]]")))
+                  "[(str/includes? ?t " (edn-str (str query)) ")]]")))
   (put-patents! [_ patents]
     (kd/transact dm (edn-str (mapv (fn [p] (assoc p :doc/type "Patent")) patents)))
     (count patents))
