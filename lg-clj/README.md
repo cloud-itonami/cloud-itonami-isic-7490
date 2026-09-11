@@ -11,8 +11,8 @@ nothing here changes the Python deployment.
 ## Run
 
 ```bash
-bb test          # clojure.test suite (run_tests.clj)
-bb run_tests.clj # same, explicit
+kbb -M:test          # clojure.test suite (run_tests.clj)
+kbb run_tests.cljk # same, explicit
 ```
 
 ## Layout

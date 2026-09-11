@@ -1,5 +1,5 @@
 (ns proserv.sim
-  "Demo driver -- `clojure -M:dev:run`. Walks a clean engagement
+  "Demo driver -- `kbb -M:dev:run`. Walks a clean engagement
   through intake -> deliverable-scope verification -> chain-of-title
   screening -> credential screening -> deliverable-issuance proposal
   (always escalates) -> human approval -> commit, then shows four
