@@ -122,7 +122,7 @@ autonomous, at any phase, by construction.** Two independent layers
 enforce this (`proserv.governor`'s `:actuation/issue-deliverable`
 high-stakes gate and `proserv.phase`'s phase table, which never puts
 `:actuation/issue-deliverable` in any phase's `:auto` set) -- see
-`proserv.phase`'s docstring and `test/proserv/phase_test.clj`'s
+`proserv.phase`'s docstring and `test/proserv/phase_test.cljk`'s
 `issue-deliverable-never-auto-at-any-phase`. The actor may draft,
 check and recommend; a human licensed professional is always the one
 who actually issues a deliverable. Matching `leasing`'s/
@@ -216,14 +216,14 @@ only -- no bespoke domain capability lib to reference at all.
 
 | File | Role |
 |---|---|
-| `src/proserv/store.cljc` | **Store** protocol -- `MemStore` ‖ `DatomicStore` (`langchain.db`) + append-only audit ledger + deliverable-issuance history. No dynamically-filed sub-record -- the actuation op acts directly on a pre-seeded engagement, and the double-actuation guard checks a dedicated `:deliverable-issued?` boolean rather than a `:status` value |
-| `src/proserv/registry.cljc` | Deliverable-issuance draft records. Intentionally 'plain': this build's two distinctive checks are both boolean flags evaluated directly by the governor, not registry-level numeric/temporal predicates |
-| `src/proserv/facts.cljc` | Per-jurisdiction professional-services catalog with an official spec-basis citation per entry, honest coverage reporting |
-| `src/proserv/proservadvisor.cljc` | **ProServ-LLM** -- `mock-advisor` ‖ `llm-advisor`; intake/deliverable-scope-verification/chain-of-title-screening/credential-screening/deliverable-issuance proposals |
-| `src/proserv/governor.cljc` | **Professional Services Governor** -- 5 HARD checks (spec-basis · evidence-incomplete · chain-of-title-unresolved, unconditional evaluation, GENUINELY NEW, the 55th grounding of this discipline · credential-not-current, unconditional evaluation, an HONEST reuse of this fleet's long-established credential-currency concept, not claimed as new · already-issued guard) + 1 soft (confidence/actuation gate) |
-| `src/proserv/phase.cljc` | **Phase 0→3** -- read-only → assisted intake → assisted verify → supervised (deliverable issuance always human; engagement intake is the ONLY auto-eligible op, no direct capital risk) |
-| `src/proserv/operation.cljc` | **OperationActor** -- langgraph-clj StateGraph |
-| `src/proserv/sim.cljc` | demo driver |
+| `src/proserv/store.cljk` | **Store** protocol -- `MemStore` ‖ `DatomicStore` (`langchain.db`) + append-only audit ledger + deliverable-issuance history. No dynamically-filed sub-record -- the actuation op acts directly on a pre-seeded engagement, and the double-actuation guard checks a dedicated `:deliverable-issued?` boolean rather than a `:status` value |
+| `src/proserv/registry.cljk` | Deliverable-issuance draft records. Intentionally 'plain': this build's two distinctive checks are both boolean flags evaluated directly by the governor, not registry-level numeric/temporal predicates |
+| `src/proserv/facts.cljk` | Per-jurisdiction professional-services catalog with an official spec-basis citation per entry, honest coverage reporting |
+| `src/proserv/proservadvisor.cljk` | **ProServ-LLM** -- `mock-advisor` ‖ `llm-advisor`; intake/deliverable-scope-verification/chain-of-title-screening/credential-screening/deliverable-issuance proposals |
+| `src/proserv/governor.cljk` | **Professional Services Governor** -- 5 HARD checks (spec-basis · evidence-incomplete · chain-of-title-unresolved, unconditional evaluation, GENUINELY NEW, the 55th grounding of this discipline · credential-not-current, unconditional evaluation, an HONEST reuse of this fleet's long-established credential-currency concept, not claimed as new · already-issued guard) + 1 soft (confidence/actuation gate) |
+| `src/proserv/phase.cljk` | **Phase 0→3** -- read-only → assisted intake → assisted verify → supervised (deliverable issuance always human; engagement intake is the ONLY auto-eligible op, no direct capital risk) |
+| `src/proserv/operation.cljk` | **OperationActor** -- langgraph-clj StateGraph |
+| `src/proserv/sim.cljk` | demo driver |
 | `test/proserv/*_test.clj` | governor contract · phase invariants · store parity · registry conformance · facts coverage |
 
 ## Business-process coverage (honest)
