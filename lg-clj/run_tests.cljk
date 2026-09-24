@@ -6,7 +6,7 @@
 ;; Exits non-zero if any test fails or errors.
 (ns lg-open-patent.host
   (:require [babashka.http-client :as http]
-            [clojure.test :as t]
+            [kotoba.test :as t]
             [lg-open-patent.llm :as llm]
             [lg-open-patent.smoke-test]))
 
