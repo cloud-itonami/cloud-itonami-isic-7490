@@ -1,0 +1,34 @@
+;; What this vertical's robot physically does, declared for
+;; kotoba.robotics.process (kotoba-lang/robotics). `kbb -M:dev:physics` runs it.
+;;
+;; README "Robotics premise": a document-courier robot handles physical
+;; deliverable handoff for professional, scientific and technical services
+;; (ISIC 7490: translation, technical reports, attestations). Its physical
+;; work is moving deliverables: carrying a sealed deliverable package from the
+;; practice's issuance desk to the client handoff counter, and placing signed
+;; attestation binders into the outgoing tray.
+;;
+;; Every number without a cited source is marked `estimate` in its :basis.
+;; Replacing an estimate with a sourced value is this bot's growth work.
+{:physics/schema "itonami.physical-ai.spec.v1"
+ :repo "cloud-itonami/cloud-itonami-isic-7490"
+ :cases
+ [{:id :deliverable-courier-leg
+   :kind :transport
+   :procedure "courier robot carries a sealed deliverable package from the issuance desk to the client handoff counter"
+   :params {:mass-kg 40.0 :payload-kg 8.0 :v-max-mps 1.0 :a-max-mps2 0.5
+            :brake-decel-mps2 0.8 :drive-force-n 90.0 :crr 0.02
+            :cog-height-m 0.55 :support-half-length-m 0.25 :max-time-s 1200.0}
+   :sweep {:param :distance-m :values [20.0 40.0 60.0 90.0 120.0]}
+   :quantity :cycle-time-s
+   :limit {:max 90.0 :basis "estimate: one in-office handoff leg within a 2-minute client-counter wait, allowing for doors"}
+   :boundary {:lo 10.0 :hi 300.0}}
+  {:id :attestation-binder-to-tray
+   :kind :manipulator
+   :procedure "arm places a signed attestation binder from the signing desk into the outgoing deliverables tray"
+   :params {:l1-m 0.40 :l2-m 0.35 :m1-kg 3.0 :m2-kg 2.0
+            :from [0.50 0.05] :to [0.15 0.55] :duration-s 2.0 :steps 400}
+   :sweep {:param :payload-kg :values [0.3 0.8 1.5 2.5 4.0]}
+   :quantity :peak-tau1-nm
+   :limit {:max 45.0 :basis "estimate: continuous shoulder torque of a light desktop collaborative arm (~3 kg payload class)"}
+   :boundary {:lo 0.1 :hi 20.0}}]}
