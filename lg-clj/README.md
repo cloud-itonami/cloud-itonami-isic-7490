@@ -31,11 +31,11 @@ kbb run_tests.cljk # same, explicit
 ## Faithfulness & deviations
 
 - **Topology** matches the Python graphs node-for-node where the source is
-  available (`health`) and matches the **documented** pipeline (app `CLAUDE.md`)
+  available (`health`) and matches the **documented** pipeline (app `AGENTS.md`)
   for `ingest_multi` / `synthesize_invention` — whose Python bodies are thin
   re-exports of `kotodama.langgraph_graphs.*`, a package **not vendored** in this
   checkout. The HITL novelty threshold (≥ 60 → `status='review'`) and seed
-  temperature (0.6) follow `CLAUDE.md`.
+  temperature (0.6) follow `AGENTS.md`.
 - **No RisingWave** (substrate boundary): `psycopg`/`vertex_open_patent_*` →
   injectable `PatentStore` seam, kotoba-Datom-log target. **No checkpointer** port
   (RW-compat `_RwAsyncPostgresSaver` is RW-specific); the clj graphs are pure.

@@ -6,7 +6,7 @@
   PORT NOTE (ADR-2606280030): the Python `lg/lg_open_patent/graphs/ingest_multi.py`
   is a thin re-export of `kotodama.langgraph_graphs.open_patent_ingest_multi`; that
   kotodama module is NOT vendored in this checkout. This is a faithful port of the
-  documented Follow-based ingest architecture (app CLAUDE.md `Ingest Architecture`):
+  documented Follow-based ingest architecture (app AGENTS.md `Ingest Architecture`):
 
       patent.etzhayyim.com -> AT firehose -> open-patent subscribeRepos
         -> onCommit(com.etzhayyim.apps.openPatent.patent)
