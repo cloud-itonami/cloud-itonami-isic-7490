@@ -6,7 +6,7 @@
   PORT NOTE (ADR-2606280030): the Python `synthesize_invention.py` re-exports
   `kotodama.langgraph_graphs.open_patent_synthesize_invention` (not vendored in
   this checkout). This is a faithful port of the documented generation pipeline
-  (app CLAUDE.md `Generation Pipeline`), node-for-node:
+  (app AGENTS.md `Generation Pipeline`), node-for-node:
 
       gather_tech_trends
         -> synthesize_seeds   (LLM, temperature 0.6, per tech_domain)
@@ -27,7 +27,7 @@
             [lg-open-patent.store :as store]))
 
 (def novelty-threshold 60)      ;; novelty_score >= 60 -> HITL review
-(def synth-temperature 0.6)     ;; per CLAUDE.md Generation Pipeline
+(def synth-temperature 0.6)     ;; per AGENTS.md Generation Pipeline
 (def max-domains 5)
 
 (defn- ms [] #?(:clj (System/currentTimeMillis) :cljs (.now js/Date)))
